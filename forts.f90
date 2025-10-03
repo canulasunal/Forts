@@ -44,4 +44,42 @@ module forts
 
         end function endswith
 
+        function lower(string)
+            character(len=*) :: string
+            character(len=256) :: lower
+
+            character, dimension(26) :: alphabet = & 
+            ['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z']
+            character, dimension(26) :: alphabet_u = &
+            ['A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z']
+
+            integer :: x
+
+            lower = trim(string)
+
+            do x = 1, size(alphabet)
+                lower = replace(lower, alphabet_u(x), alphabet(x))
+            end do
+
+        end function lower
+
+        function upper(string)
+            character(len=*) :: string
+            character(len=256) :: upper
+
+            character, dimension(26) :: alphabet = & 
+            ['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z']
+            character, dimension(26) :: alphabet_u = &
+            ['A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z']
+
+            integer :: x
+
+            upper = trim(string)
+
+            do x = 1, size(alphabet)
+                upper = replace(upper, alphabet(x), alphabet_u(x))
+            end do
+
+        end function upper
+
 end module forts
