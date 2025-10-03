@@ -18,18 +18,30 @@ module forts
                     replace = trim(replace(1:index(replace, substring)-1)) // new // trim(part_one)
                 end if
             end do
-
+            
         end function replace
 
-        function startsWith(string, substring)
+        function startswith(string, substring)
             character(len=*) :: string, substring
-            integer :: startsWith
+            integer :: startswith
 
             if (index(string, substring) == 1) then
-                startsWith = 1
+                startswith = 1
             else
-                startsWith = 0
+                startswith = 0
             end if
-        end function startsWith
+        end function startswith
+
+        function endswith(string, substring)
+            character(len=*) :: string, substring
+            integer :: endswith
+
+            if (index(string, substring) == len(string)-len(substring)+1) then
+                endswith = 1
+            else
+                endswith = 0
+            end if
+
+        end function endswith
 
 end module forts
