@@ -82,4 +82,17 @@ module forts
 
         end function upper
 
+        function copy(string, times)
+            character(len=*) :: string
+            integer :: times, x
+
+            character(len=560) :: copy
+
+            copy = ""
+
+            do x = 1, times
+                copy = trim(string // copy)
+            end do
+        end function copy
+
 end module forts
